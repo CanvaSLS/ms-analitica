@@ -33,7 +33,8 @@ functions:
     events:
       - sqs:
           arn: { Fn::GetAtt: [ColaAnalitica, Arn] }
-          batchSize: 5
+          batchSize: 10
+          maximumConcurrency: 2
           functionResponseType: ReportBatchItemFailures
   obtenerIndicadores:
     handler: handler.obtener_indicadores
